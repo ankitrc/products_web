@@ -18,11 +18,15 @@ from django.urls import path, include
 from django.conf.urls import url
 from . import views
 from blogs import urls
-
+from admin_content import urls as adminurl
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     url(r'^$',views.home),
     # url(r'^blog/',include(blogs.urls)),
+    # path('admin-contents/', include(admin_content.urls)),
     path('blogs/', include(urls)),
+    # path('admin-content-add/',views.product_add),
+    # path('admin-content/',views.product_add_show),
+    path('admin-content/', include(adminurl)),
 ]
